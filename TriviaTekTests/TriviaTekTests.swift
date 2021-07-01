@@ -2,7 +2,7 @@
 //  TriviaTekTests.swift
 //  TriviaTekTests
 //
-//  Created by Yasemin YEL on 29.06.2021.
+//  Created by Amber ÇATALBAŞ on 29.06.2021.
 //
 
 import XCTest

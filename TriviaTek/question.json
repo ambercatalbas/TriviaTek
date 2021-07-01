@@ -1,0 +1,48 @@
+[
+    {
+        "questionNumber": "1/5",
+        "question": "What’s the biggest planet in our solar system?",
+        "optionA": "Jupiter",
+        "optionB": "Saturn",
+        "optionC": "Neptune",
+        "optionD": "Mercury",
+        "correctOption": "Jupiter"
+    },
+    {
+        "questionNumber": "2/5",
+        "question": "What attraction in India is one of the famus in the world?",
+        "optionA": "Chand Minar",
+        "optionB": "Taj Mahal",
+        "optionC": "Stadium",
+        "optionD": "Yellow Stone",
+        "correctOption": "Taj Mahal"
+    },
+    {
+        "questionNumber": "3/5",
+        "question": "What land animal can open its mouth the widest?",
+        "optionA": "Alligator",
+        "optionB": "Crocodile",
+        "optionC": "Baboon",
+        "optionD": "Hippo",
+        "correctOption": "Hippo"
+    },
+    {
+        "questionNumber": "4/5",
+        "question": "What is the largest animal on Earth?",
+        "optionA": "The African elephant",
+        "optionB": "The blue whale",
+        "optionC": "The sperm whale",
+        "optionD": "The giant squid",
+        "correctOption": "The blue whale"
+    },
+    {
+        "questionNumber": "5/5",
+        "question": "What is the only flying mammal?",
+        "optionA": "The bat",
+        "optionB": "The flying squirrel",
+        "optionC": "The bald eagle",
+        "optionD": "The colugo",
+        "correctOption": "The bat"
+    }
+]
+ 

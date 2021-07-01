@@ -1,0 +1,460 @@
+//
+//  ViewController.swift
+//  TriviaTek
+//
+//  Created by Amber ÇATALBAŞ on 29.06.2021.
+//
+
+import UIKit
+
+class QuestionViewController: UIViewController {
+    
+    
+    struct Constants {
+        static let cornerRadius: CGFloat = 8.0
+    }
+    
+    private let questionNumberNameLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Helvetica-Bold", size: 20)
+        label.text = "Question Num"
+        
+        return label
+    } ()
+    private let questionNumberLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Helvetica-Bold", size: 22)
+        label.text = "1/10"
+        return label
+    } ()
+    private let wildCardNumberNameLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Helvetica-Bold", size: 20)
+        label.text = "Wild Card Num"
+        return label
+    } ()
+    private let wildCardNumberLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Helvetica-Bold", size: 22)
+        return label
+    } ()
+    
+    private let questionDescriptionNameLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Helvetica-Bold", size: 20)
+        label.text = "Question"
+        return label
+    } ()
+    private let questionDescriptionLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .justified
+        label.numberOfLines = 3
+        label.font = UIFont(name: "Helvetica-Bold", size: 20)
+        label.text = "question description question description question description question description?"
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = Constants.cornerRadius
+        label.backgroundColor = .secondarySystemBackground
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor  = UIColor.secondaryLabel.cgColor
+        
+      
+        return label
+    } ()
+    
+    private let answersNameLabel: UILabel = {
+        
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Helvetica-Bold", size: 20)
+        label.text = "Answers"
+        return label
+    } ()
+    private let optionAButton: UIButton = {
+        
+        let button = UIButton()
+        button.setTitle("option", for: .normal)
+        button.titleLabel?.numberOfLines = 1
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.backgroundColor = .secondarySystemBackground
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor  = UIColor.secondaryLabel.cgColor
+        button.setTitleColor(.black, for: .normal)
+        return button
+    } ()
+    private let optionBButton: UIButton = {
+        
+        let button = UIButton()
+        button.titleLabel?.numberOfLines = 1
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.backgroundColor = .secondarySystemBackground
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor  = UIColor.secondaryLabel.cgColor
+        button.setTitleColor(.black, for: .normal)
+        
+        return button
+    } ()
+    private let optionCButton: UIButton = {
+        
+        let button = UIButton()
+    
+       
+        button.titleLabel?.textAlignment = .left
+        button.titleLabel?.numberOfLines = 1
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.backgroundColor = .secondarySystemBackground
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor  = UIColor.secondaryLabel.cgColor
+        button.setTitleColor(.black, for: .normal)
+        return button
+    } ()
+    private let optionDButton: UIButton = {
+        
+        let button = UIButton()
+    
+       
+        button.titleLabel?.textAlignment = .left
+        button.titleLabel?.numberOfLines = 1
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.backgroundColor = .secondarySystemBackground
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor  = UIColor.secondaryLabel.cgColor
+        button.setTitleColor(.black, for: .normal)
+        return button
+    } ()
+    var correctOption: String = ""
+    var questionNum: Int = 0
+    var score: Int = 0
+    var wildCardNum : Int = 3
+    
+    private var questionListViewModel: QuestionListViewModel!
+ 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        getData()
+        addSubviews()
+       
+        optionAButton.addTarget(self,
+                                action: #selector(questioningA),
+                                for: .touchUpInside)
+        optionBButton.addTarget(self,
+                                action: #selector(questioningB),
+                                for: .touchUpInside)
+        optionCButton.addTarget(self,
+                                action: #selector(questioningC),
+                                for: .touchUpInside)
+        optionDButton.addTarget(self,
+                                action: #selector(questioningD),
+                                for: .touchUpInside)
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        wildCardNumberLabel.text = String(wildCardNum)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //assign frames
+        questionNumberNameLabel.frame = CGRect(
+            x: 10,
+            y: view.safeAreaInsets.bottom+20,
+            width: (view.width-30)/2,
+            height: 40.0)
+        questionNumberLabel.frame = CGRect(
+            x: 10,
+            y: questionNumberNameLabel.bottom + 5,
+            width: (view.width-30)/2,
+            height: 40.0)
+        wildCardNumberNameLabel.frame = CGRect(
+            x: (view.width-30)/2+20,
+            y: view.safeAreaInsets.bottom+20,
+            width: (view.width-30)/2,
+            height: 40.0)
+        wildCardNumberLabel.frame = CGRect(
+            x: (view.width-30)/2+20,
+            y: wildCardNumberNameLabel.bottom + 5,
+            width: (view.width-30)/2,
+            height: 40.0)
+        questionDescriptionNameLabel.frame = CGRect(
+            x: 20,
+            y: wildCardNumberLabel.bottom + 10,
+            width: view.width-40,
+            height: 40.0)
+        questionDescriptionLabel.frame = CGRect(
+            x: 20,
+            y: questionDescriptionNameLabel.bottom + 5,
+            width: view.width-40,
+            height: 104.0)
+        answersNameLabel.frame = CGRect(
+            x: 20,
+            y: questionDescriptionLabel.bottom + 10,
+            width: view.width-40,
+            height: 40.0)
+
+        optionAButton.frame = CGRect(
+            x: 20,
+            y: answersNameLabel.bottom + 5,
+            width: view.width-40,
+            height: 40.0)
+        optionBButton.frame = CGRect(
+            x: 20,
+            y: optionAButton.bottom + 5,
+            width: view.width-40,
+            height: 40.0)
+        optionCButton.frame = CGRect(
+            x: 20,
+            y: optionBButton.bottom + 5,
+            width: view.width-40,
+            height: 40.0)
+        optionDButton.frame = CGRect(
+            x: 20,
+            y: optionCButton.bottom + 5,
+            width: view.width-40,
+            height: 40.0)
+        
+        
+    }
+    private func addSubviews() {
+        view.addSubview(questionNumberLabel)
+        view.addSubview(questionNumberNameLabel)
+        view.addSubview(wildCardNumberLabel)
+        view.addSubview(wildCardNumberNameLabel)
+        view.addSubview(questionDescriptionNameLabel)
+        view.addSubview(questionDescriptionLabel)
+        view.addSubview(answersNameLabel)
+
+        view.addSubview(optionAButton)
+        view.addSubview(optionBButton)
+        view.addSubview(optionCButton)
+        view.addSubview(optionDButton)
+    }
+    
+
+    @objc func questioningA() {
+        if optionAButton.titleLabel?.text == correctOption {
+            optionAButton.backgroundColor = .green
+            if questionNum < questionListViewModel.countQuestions()-1{
+                questionNum += 1
+                score += 1
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    self.getData()
+                    self.secondarySystemBackground()
+                }
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+           
+          
+        } else {
+          
+            optionAButton.backgroundColor = .red
+            if wildCardNum > 0 {
+                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+            
+           
+        }
+
+
+    }
+    @objc func questioningB() {
+        if optionBButton.titleLabel?.text == correctOption {
+            optionBButton.backgroundColor = .green
+            if questionNum < questionListViewModel.countQuestions()-1{
+                questionNum += 1
+                score += 1
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    self.getData()
+                    self.secondarySystemBackground()
+                }
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+        } else {
+            optionBButton.backgroundColor = .red
+            if wildCardNum > 0 {
+                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+             }
+
+
+
+    }
+    @objc func questioningC() {
+
+        if optionCButton.titleLabel?.text == correctOption {
+            optionCButton.backgroundColor = .green
+            if questionNum < questionListViewModel.countQuestions()-1{
+                questionNum += 1
+                score += 1
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    self.getData()
+                    self.secondarySystemBackground()
+                }
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+        } else {
+            optionCButton.backgroundColor = .red
+            if wildCardNum > 0 {
+                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+            
+             }
+
+
+    }
+    @objc func questioningD() {
+
+        if optionDButton.titleLabel?.text == correctOption {
+            optionDButton.backgroundColor = .green
+            if questionNum < questionListViewModel.countQuestions()-1{
+                questionNum += 1
+                score += 1
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    self.getData()
+                    self.secondarySystemBackground()
+                }
+                
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+        } else {
+            optionDButton.backgroundColor = .red
+            if wildCardNum > 0 {
+                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
+            } else {
+                performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+              }
+
+
+    }
+    private func secondarySystemBackground () {
+        self.optionAButton.backgroundColor = .secondarySystemBackground
+        self.optionBButton.backgroundColor = .secondarySystemBackground
+        self.optionCButton.backgroundColor = .secondarySystemBackground
+        self.optionDButton.backgroundColor = .secondarySystemBackground
+    }
+    private func getData() {
+      
+        guard let path = Bundle.main.path(forResource: "question", ofType: "json") else {return}
+        
+        let url = URL(fileURLWithPath: path)
+        Webservice().downloadQuestions(url: url) { questions in
+            
+            if let questions = questions {
+                
+              self.questionListViewModel = QuestionListViewModel(questionlist: questions)
+                
+        DispatchQueue.main.async {
+            let questionListViewModell = self.questionListViewModel.questionAtIndex(self.questionNum)
+            self.questionDescriptionLabel.text = questionListViewModell.questionDescription
+            self.questionNumberLabel.text = questionListViewModell.questionNumber
+            self.optionAButton.setTitle(questionListViewModell.optionA, for: .normal)
+            self.optionBButton.setTitle(questionListViewModell.optionB, for: .normal)
+            self.optionCButton.setTitle(questionListViewModell.optionC, for: .normal)
+            self.optionDButton.setTitle(questionListViewModell.optionD, for: .normal)
+            
+           
+            self.correctOption = questionListViewModell.correctOption
+
+                                    
+                    
+                }
+            }
+        }
+        
+    }
+    
+    func makeAlert(title: String, message: String) {
+     
+        // create the alert
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+    
+                // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
+            
+            print("okKKK")
+           
+            if self.wildCardNum > 0 {
+                self.wildCardNum -= 1
+                self.wildCardNumberLabel.text = String(self.wildCardNum)
+                print(self.wildCardNum)
+            } else {
+                self.performSegue(withIdentifier: "toFinalVC", sender: nil)
+            }
+            
+            
+    
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { action in
+            print("cancelll")
+            self.performSegue(withIdentifier: "toFinalVC", sender: nil)
+    
+        }))
+    
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+    
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFinalVC" {
+            let destinationVC = segue.destination as? FinalViewController
+            destinationVC?.score = score
+        }
+    }
+
+    
+}
+
+
+
+

@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		6442B5AB268B5C6600D2FB52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */; };
 		6442B5AD268B5C6600D2FB52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */; };
-		6442B5AF268B5C6600D2FB52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5AE268B5C6600D2FB52 /* ViewController.swift */; };
+		6442B5AF268B5C6600D2FB52 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5AE268B5C6600D2FB52 /* QuestionViewController.swift */; };
 		6442B5B2268B5C6600D2FB52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6442B5B0268B5C6600D2FB52 /* Main.storyboard */; };
 		6442B5B4268B5C6D00D2FB52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */; };
 		6442B5B7268B5C6D00D2FB52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6442B5B5268B5C6D00D2FB52 /* LaunchScreen.storyboard */; };
 		6442B5C2268B5C6E00D2FB52 /* TriviaTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5C1268B5C6E00D2FB52 /* TriviaTekTests.swift */; };
 		6442B5CD268B5C6E00D2FB52 /* TriviaTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5CC268B5C6E00D2FB52 /* TriviaTekUITests.swift */; };
+		6442B5DF268B734900D2FB52 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5DE268B734900D2FB52 /* Models.swift */; };
+		6442B5E1268B78C200D2FB52 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5E0268B78C200D2FB52 /* WebService.swift */; };
+		6442B5E5268CC09900D2FB52 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5E4268CC09900D2FB52 /* QuestionViewModel.swift */; };
+		6442B5E9268CC55700D2FB52 /* question.json in Resources */ = {isa = PBXBuildFile; fileRef = 6442B5E8268CC55700D2FB52 /* question.json */; };
+		6442B5ED268D0E2700D2FB52 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5EC268D0E2600D2FB52 /* FinalViewController.swift */; };
+		6442B5F2268E132400D2FB52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442B5F1268E132400D2FB52 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +44,7 @@
 		6442B5A7268B5C6600D2FB52 /* TriviaTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TriviaTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6442B5AE268B5C6600D2FB52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6442B5AE268B5C6600D2FB52 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		6442B5B1268B5C6600D2FB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6442B5B6268B5C6D00D2FB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,12 @@
 		6442B5C8268B5C6E00D2FB52 /* TriviaTekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriviaTekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6442B5CC268B5C6E00D2FB52 /* TriviaTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaTekUITests.swift; sourceTree = "<group>"; };
 		6442B5CE268B5C6E00D2FB52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6442B5DE268B734900D2FB52 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		6442B5E0268B78C200D2FB52 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		6442B5E4268CC09900D2FB52 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		6442B5E8268CC55700D2FB52 /* question.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = question.json; sourceTree = "<group>"; };
+		6442B5EC268D0E2600D2FB52 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		6442B5F1268E132400D2FB52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +111,15 @@
 		6442B5A9268B5C6600D2FB52 /* TriviaTek */ = {
 			isa = PBXGroup;
 			children = (
-				6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */,
-				6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */,
-				6442B5AE268B5C6600D2FB52 /* ViewController.swift */,
+				6442B5DD268B729900D2FB52 /* Service */,
+				6442B5DC268B728700D2FB52 /* Model */,
+				6442B5DB268B727900D2FB52 /* View */,
+				6442B5DA268B726400D2FB52 /* ViewModel */,
 				6442B5B0268B5C6600D2FB52 /* Main.storyboard */,
 				6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */,
 				6442B5B5268B5C6D00D2FB52 /* LaunchScreen.storyboard */,
 				6442B5B8268B5C6D00D2FB52 /* Info.plist */,
+				6442B5E8268CC55700D2FB52 /* question.json */,
 			);
 			path = TriviaTek;
 			sourceTree = "<group>";
@@ -126,6 +140,42 @@
 				6442B5CE268B5C6E00D2FB52 /* Info.plist */,
 			);
 			path = TriviaTekUITests;
+			sourceTree = "<group>";
+		};
+		6442B5DA268B726400D2FB52 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5E4268CC09900D2FB52 /* QuestionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6442B5DB268B727900D2FB52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */,
+				6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */,
+				6442B5AE268B5C6600D2FB52 /* QuestionViewController.swift */,
+				6442B5EC268D0E2600D2FB52 /* FinalViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6442B5DC268B728700D2FB52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5DE268B734900D2FB52 /* Models.swift */,
+				6442B5F1268E132400D2FB52 /* Extensions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6442B5DD268B729900D2FB52 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5E0268B78C200D2FB52 /* WebService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +283,7 @@
 			files = (
 				6442B5B7268B5C6D00D2FB52 /* LaunchScreen.storyboard in Resources */,
 				6442B5B4268B5C6D00D2FB52 /* Assets.xcassets in Resources */,
+				6442B5E9268CC55700D2FB52 /* question.json in Resources */,
 				6442B5B2268B5C6600D2FB52 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,9 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6442B5AF268B5C6600D2FB52 /* ViewController.swift in Sources */,
+				6442B5AF268B5C6600D2FB52 /* QuestionViewController.swift in Sources */,
+				6442B5ED268D0E2700D2FB52 /* FinalViewController.swift in Sources */,
 				6442B5AB268B5C6600D2FB52 /* AppDelegate.swift in Sources */,
+				6442B5F2268E132400D2FB52 /* Extensions.swift in Sources */,
 				6442B5AD268B5C6600D2FB52 /* SceneDelegate.swift in Sources */,
+				6442B5E1268B78C200D2FB52 /* WebService.swift in Sources */,
+				6442B5E5268CC09900D2FB52 /* QuestionViewModel.swift in Sources */,
+				6442B5DF268B734900D2FB52 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
