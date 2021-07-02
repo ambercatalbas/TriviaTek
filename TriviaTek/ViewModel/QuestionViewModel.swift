@@ -22,9 +22,6 @@ struct QuestionListViewModel {
      }
 }
 
-
-
-
 struct QuestionViewModel {
     let question: Questions
     

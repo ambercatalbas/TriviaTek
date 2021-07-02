@@ -111,15 +111,11 @@
 		6442B5A9268B5C6600D2FB52 /* TriviaTek */ = {
 			isa = PBXGroup;
 			children = (
+				6442B5F5268F2FD200D2FB52 /* Resources */,
 				6442B5DD268B729900D2FB52 /* Service */,
 				6442B5DC268B728700D2FB52 /* Model */,
 				6442B5DB268B727900D2FB52 /* View */,
 				6442B5DA268B726400D2FB52 /* ViewModel */,
-				6442B5B0268B5C6600D2FB52 /* Main.storyboard */,
-				6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */,
-				6442B5B5268B5C6D00D2FB52 /* LaunchScreen.storyboard */,
-				6442B5B8268B5C6D00D2FB52 /* Info.plist */,
-				6442B5E8268CC55700D2FB52 /* question.json */,
 			);
 			path = TriviaTek;
 			sourceTree = "<group>";
@@ -153,10 +149,8 @@
 		6442B5DB268B727900D2FB52 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */,
-				6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */,
-				6442B5AE268B5C6600D2FB52 /* QuestionViewController.swift */,
-				6442B5EC268D0E2600D2FB52 /* FinalViewController.swift */,
+				6442B5F4268F2DEB00D2FB52 /* Controllers */,
+				6442B5F3268F2DCD00D2FB52 /* StoryBoards */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,8 +168,38 @@
 			isa = PBXGroup;
 			children = (
 				6442B5E0268B78C200D2FB52 /* WebService.swift */,
+				6442B5E8268CC55700D2FB52 /* question.json */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		6442B5F3268F2DCD00D2FB52 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5B0268B5C6600D2FB52 /* Main.storyboard */,
+				6442B5B5268B5C6D00D2FB52 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		6442B5F4268F2DEB00D2FB52 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5AE268B5C6600D2FB52 /* QuestionViewController.swift */,
+				6442B5EC268D0E2600D2FB52 /* FinalViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6442B5F5268F2FD200D2FB52 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */,
+				6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */,
+				6442B5B8268B5C6D00D2FB52 /* Info.plist */,
+				6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
