@@ -14,6 +14,7 @@ class QuestionViewController: UIViewController {
         static let cornerRadius: CGFloat = 8.0
     }
     
+    // add UI workers
     private let questionNumberNameLabel: UILabel = {
         
         let label = UILabel()
@@ -160,6 +161,7 @@ class QuestionViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         return button
     } ()
+    // variables
     var correctOption: String = ""
     var questionNum: Int = 0
     var score: Int = 0
@@ -171,23 +173,27 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // main func
         getData()
         addSubviews()
        
+        // bind func to options
         optionAButton.addTarget(self,
-                                action: #selector(questioningA),
+                                action: #selector(questioning(optionButtonName:)),
                                 for: .touchUpInside)
+        
         optionBButton.addTarget(self,
-                                action: #selector(questioningB),
+                                action: #selector(questioning(optionButtonName:)),
                                 for: .touchUpInside)
         optionCButton.addTarget(self,
-                                action: #selector(questioningC),
+                                action: #selector(questioning(optionButtonName:)),
                                 for: .touchUpInside)
         optionDButton.addTarget(self,
-                                action: #selector(questioningD),
+                                action: #selector(questioning(optionButtonName:)),
                                 for: .touchUpInside)
        
     }
+        // wild card
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         wildCardNumberLabel.text = String(wildCardNum)
@@ -254,6 +260,7 @@ class QuestionViewController: UIViewController {
         
         
     }
+    // add Subviews to view
     private func addSubviews() {
         view.addSubview(questionNumberLabel)
         view.addSubview(questionNumberNameLabel)
@@ -262,20 +269,21 @@ class QuestionViewController: UIViewController {
         view.addSubview(questionDescriptionNameLabel)
         view.addSubview(questionDescriptionLabel)
         view.addSubview(answersNameLabel)
-
         view.addSubview(optionAButton)
         view.addSubview(optionBButton)
         view.addSubview(optionCButton)
         view.addSubview(optionDButton)
     }
     
-
-    @objc func questioningA() {
-        if optionAButton.titleLabel?.text == correctOption {
-            optionAButton.backgroundColor = .green
+    // option functions
+    
+    @objc func questioning(optionButtonName: UIButton) {
+        if optionButtonName.titleLabel?.text == correctOption {
+            optionButtonName.backgroundColor = .green
             if questionNum < questionListViewModel.countQuestions()-1{
                 questionNum += 1
                 score += 1
+                // add deadline
                 DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                     self.getData()
                     self.secondarySystemBackground()
@@ -287,7 +295,7 @@ class QuestionViewController: UIViewController {
           
         } else {
           
-            optionAButton.backgroundColor = .red
+            optionButtonName.backgroundColor = .red
             if wildCardNum > 0 {
                 makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
             } else {
@@ -296,93 +304,18 @@ class QuestionViewController: UIViewController {
             
            
         }
-
-
     }
-    @objc func questioningB() {
-        if optionBButton.titleLabel?.text == correctOption {
-            optionBButton.backgroundColor = .green
-            if questionNum < questionListViewModel.countQuestions()-1{
-                questionNum += 1
-                score += 1
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                    self.getData()
-                    self.secondarySystemBackground()
-                }
-            } else {
-                performSegue(withIdentifier: "toFinalVC", sender: nil)
-            }
-        } else {
-            optionBButton.backgroundColor = .red
-            if wildCardNum > 0 {
-                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
-            } else {
-                performSegue(withIdentifier: "toFinalVC", sender: nil)
-            }
-             }
-
-
-
-    }
-    @objc func questioningC() {
-
-        if optionCButton.titleLabel?.text == correctOption {
-            optionCButton.backgroundColor = .green
-            if questionNum < questionListViewModel.countQuestions()-1{
-                questionNum += 1
-                score += 1
-                
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                    self.getData()
-                    self.secondarySystemBackground()
-                }
-            } else {
-                performSegue(withIdentifier: "toFinalVC", sender: nil)
-            }
-        } else {
-            optionCButton.backgroundColor = .red
-            if wildCardNum > 0 {
-                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
-            } else {
-                performSegue(withIdentifier: "toFinalVC", sender: nil)
-            }
-            
-             }
-
-
-    }
-    @objc func questioningD() {
-
-        if optionDButton.titleLabel?.text == correctOption {
-            optionDButton.backgroundColor = .green
-            if questionNum < questionListViewModel.countQuestions()-1{
-                questionNum += 1
-                score += 1
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                    self.getData()
-                    self.secondarySystemBackground()
-                }
-                
-            } else {
-                performSegue(withIdentifier: "toFinalVC", sender: nil)
-            }
-        } else {
-            optionDButton.backgroundColor = .red
-            if wildCardNum > 0 {
-                makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
-            } else {
-                performSegue(withIdentifier: "toFinalVC", sender: nil)
-            }
-              }
-
-
-    }
+    
+    
+    // change to option background color
     private func secondarySystemBackground () {
         self.optionAButton.backgroundColor = .secondarySystemBackground
         self.optionBButton.backgroundColor = .secondarySystemBackground
         self.optionCButton.backgroundColor = .secondarySystemBackground
         self.optionDButton.backgroundColor = .secondarySystemBackground
     }
+    // get data func
+    
     private func getData() {
       
         guard let path = Bundle.main.path(forResource: "question", ofType: "json") else {return}
@@ -415,15 +348,12 @@ class QuestionViewController: UIViewController {
     }
     
     func makeAlert(title: String, message: String) {
-     
+        
         // create the alert
-                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-    
-                // add the actions (buttons)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
-            
-            print("okKKK")
-           
             if self.wildCardNum > 0 {
                 self.wildCardNum -= 1
                 self.wildCardNumberLabel.text = String(self.wildCardNum)
@@ -433,28 +363,26 @@ class QuestionViewController: UIViewController {
             }
             
             
-    
+            
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { action in
             print("cancelll")
             self.performSegue(withIdentifier: "toFinalVC", sender: nil)
-    
+            
         }))
-    
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
-    
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
     }
+        // carry the score to FinalViewController
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFinalVC" {
             let destinationVC = segue.destination as? FinalViewController
             destinationVC?.score = score
         }
     }
-
+    
     
 }
-
-
-
-

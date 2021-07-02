@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
-   
-   
-     
-}
+
 extension UIView {
     
     public var width: CGFloat {

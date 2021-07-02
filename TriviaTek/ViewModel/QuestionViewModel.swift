@@ -56,8 +56,6 @@ struct QuestionViewModel {
     
 }
 
-struct WildCard {
-    var wildCard = 3
-}
+
 
 

@@ -36,6 +36,9 @@
                         <viewLayoutGuide key="safeArea" id="2ZA-uh-wao"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toQuestionVC" modalPresentationStyle="fullScreen" id="y7f-Mo-Q00"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpo-Qu-QAS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

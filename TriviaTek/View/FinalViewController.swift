@@ -9,6 +9,10 @@ import UIKit
 
 class FinalViewController: UIViewController {
 
+    struct Constants {
+        static let cornerRadius: CGFloat = 8.0
+    }
+    // add UI workers
     private let titleLabel: UILabel = {
         
         let label = UILabel()
@@ -25,11 +29,11 @@ class FinalViewController: UIViewController {
         
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
-        label.textColor = UIColor.black
+        label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 1
         label.font = UIFont(name: "Helvetica-Bold", size: 32)
-        label.text = "& 15.00"
+        label.text = "$ 15.00"
         return label
     } ()
     private let descriptionLabel: UILabel = {
@@ -52,26 +56,47 @@ class FinalViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 5
         label.font = UIFont(name: "Helvetica-Bold", size: 22)
-        label.text = "Mustafa Kemal Atatürk, Mustafa Kemal Atatürk, Mustafa Kemal Atatürk, Mustafa Kemal Atatürk, Mustafa Kemal Atatürk"
-        label.backgroundColor = .secondarySystemBackground
+        label.text = "I know that I know nothing"
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = Constants.cornerRadius
         label.layer.borderWidth = 1.0
         label.layer.borderColor  = UIColor.secondaryLabel.cgColor
         return label
     } ()
+    private let againButton: UIButton = {
+        
+        let button = UIButton()
+    
+       
+        button.titleLabel?.textAlignment = .left
+        button.titleLabel?.numberOfLines = 1
+        button.setTitle("Do you want to try again?", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.backgroundColor = .green
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor  = UIColor.secondaryLabel.cgColor
+        button.setTitleColor(.black, for: .normal)
+        return button
+    } ()
+    
     var score : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addSubviews()
         descriptionLabel.text = "\(score) soruyu doğru cevapladınız"
+        againButton.addTarget(self, action: #selector(again), for: .touchUpInside)
     }
     
-
+    // add Subviews to view
     private func addSubviews() {
         view.addSubview(titleLabel)
         view.addSubview(prizeLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(winnersLabel)
+        view.addSubview(againButton)
 
 }
     override func viewDidLayoutSubviews() {
@@ -97,6 +122,24 @@ class FinalViewController: UIViewController {
             y: descriptionLabel.bottom + 15,
             width: view.width-20,
             height: 160.0)
+        againButton.frame = CGRect(
+            x: 20,
+            y: winnersLabel.bottom + 15,
+            width: view.width-40,
+            height: 40.0)
+        
+        
+    }
+    @objc func again() {
+        performSegue(withIdentifier: "toQuestionVC", sender: nil)
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toQuestionVC" {
+                let destinationVC = segue.destination as? QuestionViewController
+                destinationVC?.score = 0
+                destinationVC?.questionNum = 0
+            }
+        }
+    }
         
 }
-}
+
