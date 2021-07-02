@@ -43,7 +43,7 @@ class FinalViewController: UIViewController {
         label.textColor = UIColor.black
         label.textAlignment = .center
         label.numberOfLines = 1
-        label.font = UIFont(name: "Helvetica-Bold", size: 22)
+        label.font = UIFont(name: "Helvetica-Bold", size: 20)
         label.text = "5 players won this game"
         return label
     } ()
@@ -86,7 +86,7 @@ class FinalViewController: UIViewController {
         super.viewDidLoad()
 
         addSubviews()
-        descriptionLabel.text = "\(score) soruyu doğru cevapladınız"
+        descriptionLabel.text = "You answered \(score) questions correctly"
         againButton.addTarget(self, action: #selector(again), for: .touchUpInside)
     }
     

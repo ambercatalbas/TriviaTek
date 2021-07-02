@@ -178,6 +178,10 @@ class QuestionViewController: UIViewController {
         addSubviews()
        
         // bind func to options
+     addTarget()
+       
+    }
+    private func addTarget() {
         optionAButton.addTarget(self,
                                 action: #selector(questioning(optionButtonName:)),
                                 for: .touchUpInside)
@@ -191,7 +195,7 @@ class QuestionViewController: UIViewController {
         optionDButton.addTarget(self,
                                 action: #selector(questioning(optionButtonName:)),
                                 for: .touchUpInside)
-       
+        
     }
         // wild card
     override func viewDidAppear(_ animated: Bool) {

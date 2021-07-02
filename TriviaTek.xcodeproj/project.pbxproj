@@ -48,7 +48,6 @@
 		6442B5B1268B5C6600D2FB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6442B5B6268B5C6D00D2FB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6442B5B8268B5C6D00D2FB52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6442B5BD268B5C6E00D2FB52 /* TriviaTekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriviaTekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6442B5C1268B5C6E00D2FB52 /* TriviaTekTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaTekTests.swift; sourceTree = "<group>"; };
 		6442B5C3268B5C6E00D2FB52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		6442B5E8268CC55700D2FB52 /* question.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = question.json; sourceTree = "<group>"; };
 		6442B5EC268D0E2600D2FB52 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		6442B5F1268E132400D2FB52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		64D483BA268FB5A700CFC70E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +196,8 @@
 			children = (
 				6442B5AA268B5C6600D2FB52 /* AppDelegate.swift */,
 				6442B5AC268B5C6600D2FB52 /* SceneDelegate.swift */,
-				6442B5B8268B5C6D00D2FB52 /* Info.plist */,
 				6442B5B3268B5C6D00D2FB52 /* Assets.xcassets */,
+				64D483BA268FB5A700CFC70E /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68W3SBSH6G;
-				INFOPLIST_FILE = TriviaTek/Info.plist;
+				INFOPLIST_FILE = TriviaTek/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,7 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68W3SBSH6G;
-				INFOPLIST_FILE = TriviaTek/Info.plist;
+				INFOPLIST_FILE = TriviaTek/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
