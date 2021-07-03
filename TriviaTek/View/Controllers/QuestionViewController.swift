@@ -4,7 +4,6 @@
 //
 //  Created by Amber ÇATALBAŞ on 29.06.2021.
 //
-
 import UIKit
 
 class QuestionViewController: UIViewController {
@@ -361,7 +360,7 @@ class QuestionViewController: UIViewController {
             if self.wildCardNum > 0 {
                 self.wildCardNum -= 1
                 self.wildCardNumberLabel.text = String(self.wildCardNum)
-                print(self.wildCardNum)
+               
             } else {
                 self.performSegue(withIdentifier: "toFinalVC", sender: nil)
             }
@@ -370,7 +369,7 @@ class QuestionViewController: UIViewController {
             
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { action in
-            print("cancelll")
+           
             self.performSegue(withIdentifier: "toFinalVC", sender: nil)
             
         }))
@@ -390,3 +389,4 @@ class QuestionViewController: UIViewController {
     
     
 }
+

@@ -55,7 +55,7 @@ class FinalViewController: UIViewController {
         label.backgroundColor = .secondarySystemBackground
         label.textAlignment = .center
         label.numberOfLines = 5
-        label.font = UIFont(name: "Helvetica-Bold", size: 22)
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
         label.text = "I know that I know nothing"
         label.layer.masksToBounds = true
         label.layer.cornerRadius = Constants.cornerRadius
@@ -127,8 +127,6 @@ class FinalViewController: UIViewController {
             y: winnersLabel.bottom + 15,
             width: view.width-40,
             height: 40.0)
-        
-        
     }
     @objc func again() {
         performSegue(withIdentifier: "toQuestionVC", sender: nil)

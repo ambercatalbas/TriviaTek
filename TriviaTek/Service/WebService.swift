@@ -20,7 +20,6 @@ class Webservice {
                 
                 
                 let questionList = try? JSONDecoder().decode([Questions].self, from: data)
-                print(questionList ?? "failed")
                 
                 if let questionList = questionList {
                     completion(questionList)
