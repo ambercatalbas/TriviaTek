@@ -286,10 +286,12 @@ class QuestionViewController: UIViewController {
             if questionNum < questionListViewModel.countQuestions()-1{
                 questionNum += 1
                 score += 1
+              enabledOption(isenabled: false)
                 // add deadline
                 DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                     self.getData()
                     self.secondarySystemBackground()
+                  self.enabledOption(isenabled: true)
                 }
             } else {
                 performSegue(withIdentifier: "toFinalVC", sender: nil)
@@ -386,6 +388,12 @@ class QuestionViewController: UIViewController {
             destinationVC?.score = score
         }
     }
+  private func enabledOption(isenabled: Bool) {
+    optionAButton.isEnabled = isenabled
+    optionBButton.isEnabled = isenabled
+    optionCButton.isEnabled = isenabled
+    optionDButton.isEnabled = isenabled
+  }
     
     
 }
