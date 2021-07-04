@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Questions : Decodable {
+struct TriviaData: Codable {
+ let questions : [Questions]
+  let wildCards: Int
+  
+}
+
+struct Questions : Codable {
     let questionNumber : String
     let question : String
     let optionA : String
@@ -17,3 +23,6 @@ struct Questions : Decodable {
     let correctOption : String
 }
 
+//struct WildCards {
+//  let wildCard: Int
+//}

@@ -8,31 +8,31 @@
 import Foundation
 
 class Webservice {
+  
+  func downloadQuestions(url: URL, completion: @escaping (TriviaData?) -> ()) {
     
-    func downloadQuestions(url: URL, completion: @escaping ([Questions]?) -> ()) {
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      
+      if let error = error {
+        print(error.localizedDescription)
+        completion(nil)
+      } else if let data = data {
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                completion(nil)
-            } else if let data = data {
-                
-                
-                let questionList = try? JSONDecoder().decode([Questions].self, from: data)
-                
-                if let questionList = questionList {
-                    completion(questionList)
-                   
-                }
-                
-            }
-            
-        }.resume()
+        let triviaData = try? JSONDecoder().decode(TriviaData.self, from: data)
         
-    }
+        if let triviaData = triviaData {
+          completion(triviaData)
+          
+          
+        }
+        
+      }
+      
+    }.resume()
     
-
+  }
 }
 
-    
+
+
+

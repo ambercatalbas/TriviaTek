@@ -1,4 +1,4 @@
-[
+{ "questions": [
     {
         "questionNumber": "1/5",
         "question": "What’s the biggest planet in our solar system?",
@@ -44,5 +44,6 @@
         "optionD": "The colugo",
         "correctOption": "The bat"
     }
-]
- 
+],
+  "wildCards": 4
+}
