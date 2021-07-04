@@ -172,15 +172,23 @@ class QuestionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // main func
-    getWildCard()
-    getData()
-    
+   
+    //views
     addSubviews()
     
+    // get questions data
+    getData()
+    // wild card
+    getWildCard()
+    
+    
+  }
+
+   override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(true)
+  
     // bind func to options
     addTarget()
-    
   }
   private func addTarget() {
     optionAButton.addTarget(self,
@@ -196,11 +204,6 @@ class QuestionViewController: UIViewController {
     optionDButton.addTarget(self,
                             action: #selector(questioning(optionButtonName:)),
                             for: .touchUpInside)
-    
-  }
-  // wild card
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(true)
     
   }
   override func viewDidLayoutSubviews() {

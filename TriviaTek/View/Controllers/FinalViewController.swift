@@ -45,6 +45,8 @@ class FinalViewController: UIViewController {
     label.numberOfLines = 1
     label.font = UIFont(name: "Helvetica-Bold", size: 20)
     label.text = "5 players won this game"
+    
+    
     return label
   } ()
   private let winnersLabel: UILabel = {
@@ -84,11 +86,11 @@ class FinalViewController: UIViewController {
   var score : Int = 0
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     addSubviews()
-    descriptionLabel.text = "You answered \(score) questions correctly"
     againButton.addTarget(self, action: #selector(again), for: .touchUpInside)
+    scoreText()
   }
+  
   
   // add Subviews to view
   private func addSubviews() {
@@ -137,6 +139,15 @@ class FinalViewController: UIViewController {
         destinationVC?.questionNum = 0
       }
     }
+  }
+  private func scoreText() {
+    //add colored label
+    let text = NSMutableAttributedString()
+    text.append(NSAttributedString(string: "You answered ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]));
+    text.append(NSAttributedString(string: "\(score) ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue]))
+    text.append(NSAttributedString(string: "questions correctly", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]))
+    descriptionLabel.attributedText = text
+    
   }
   
 }
