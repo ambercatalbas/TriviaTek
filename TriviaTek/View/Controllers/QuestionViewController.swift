@@ -307,6 +307,7 @@ class QuestionViewController: UIViewController {
     } else {
       
       optionButtonName.backgroundColor = .red
+      optionButtonName.isEnabled = false
       if wildCardNum > 0 {
         makeAlert(title: "Hurry!", message: "Time is running out, use a wild card!")
       } else {
